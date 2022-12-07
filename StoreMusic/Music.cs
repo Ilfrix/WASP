@@ -15,6 +15,7 @@ namespace Music
         public double Price { get; set; }
         public int BurnCout { get => _burnCout; set => _burnCout = value; }
 
+        public string Name { get => _name; set => _name = value; }
         public Disk(string name, string genre)
         {
             _name = name;
@@ -72,7 +73,6 @@ namespace Music
         private string _filmCompony;
         private int _minutesCount;
 
-
         public DVD(string producer, string filmCompony, int minutesCount, string name, string genre) : base(name, genre)
         {
             _producer = producer;
@@ -85,7 +85,6 @@ namespace Music
         }
         public override void Burn(params string[] values)
         {
-            //точно ли так?
             base.Burn(values);
             BurnCout += 1;
         }
@@ -101,7 +100,8 @@ namespace Music
         private string _adress;
         private List <Audio> _audios = new List <Audio>();
         private List<DVD> _dvds = new List<DVD>();
-
+        public List<Audio> Audios { get { return _audios; } }   
+        public List<DVD> DVDs { get { return _dvds; } }
         public Store(string storeName, string adress)
         {
             _storeName = storeName;
@@ -131,13 +131,13 @@ namespace Music
             result += "DVD: ";
             foreach (DVD dvd in _dvds)
             {
-                result += dvd.ToString() + " ";
+                result += dvd.ToString() + "\n";
             }
-            result += "\n Audio:";
+            result += "\nAudio:";
 
             foreach (Audio audio in _audios)
             {
-                result += audio.ToString() + " ";
+                result += audio.ToString() + "\n";
             }
             return result;
         }
@@ -159,6 +159,17 @@ namespace Music
             new_store.AddDVD(dvd_1);
             new_store.AddDVD(dvd_2);
             Console.WriteLine(new_store.ToString());
+            first_audio.Burn("new_artist", "new_stidio", "5", "new_songs!!!", "aaaaa");
+            Console.WriteLine("name and size of DVDs:");
+            foreach (DVD d in new_store.DVDs)
+            {
+                Console.WriteLine(d.Name + " " + d.DiskSize());
+            }
+            Console.WriteLine("\nname and size of audios:");
+            foreach (Audio d in new_store.Audios)
+            {
+                Console.WriteLine(d.Name + " " + d.DiskSize());
+            }
         }
     }
 }
