@@ -8,7 +8,7 @@
 ------------------|--------|--------
 Автопарк         | 🟢    | <a href="https://github.com/Ilfrix/WASP/tree/main/Autopark">Перейти</a>
 Магазин          | 🟡    | <a href="https://github.com/Ilfrix/WASP/tree/main/StoreMusic">Перейти</a>
-Приложение       | 🔴    |
+Приложение       | 🟡    | <a href="https://github.com/Ilfrix/WASP/tree/main/PIN">Перейти</a>
 
 **Статусы выполнения:** <br>
 🔴 Не готово <br>
